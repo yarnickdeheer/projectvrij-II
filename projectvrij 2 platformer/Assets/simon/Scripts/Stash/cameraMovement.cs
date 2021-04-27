@@ -54,7 +54,7 @@ public class cameraMovement : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && Input.GetMouseButton(1))
         {
-            GameObject temp = Instantiate(musicBulletPrefab, playerTransform.position, new Quaternion(0, 0, 0, 0));
+            GameObject temp = Instantiate(musicBulletPrefab, (playerTransform.position + playerTransform.forward), new Quaternion(0, 0, 0, 0));
             temp.GetComponent<Rigidbody>().AddForce((playerTransform.forward + transform.forward).normalized * 1000);
         }
     }

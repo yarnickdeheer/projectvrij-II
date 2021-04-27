@@ -13,7 +13,7 @@ public class FocusPlayer : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         /*        transform.LookAt(new Vector3(transform.position.x + Input.GetAxis("Horizontal"),transform.position.y, transform.position.z + Input.GetAxis("Vertical")));
 
