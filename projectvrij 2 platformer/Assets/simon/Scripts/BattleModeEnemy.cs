@@ -9,12 +9,18 @@ public class BattleModeEnemy : MonoBehaviour
     public GameObject musicBullet;
 
     private bool shootingBullet = false;
+    private bool returnBool = false;
     GameObject bullet;
     float playerPerc = 0;
+    float shootTimer;
+
+    public ParticleSystem reaction;
+    public ParticleSystem getHit;
     // Start is called before the first frame update
     void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        shootTimer = Random.Range(1, 4);
     }
 
     // Update is called once per frame
@@ -24,10 +30,19 @@ public class BattleModeEnemy : MonoBehaviour
         Vector2 playerLocation = new Vector2(playerTransform.position.x, playerTransform.position.z);
         updateLine(enemyLocation, playerLocation);
 
-        if (Input.GetKeyDown(KeyCode.E) && !shootingBullet)
+        if (!shootingBullet)
         {
-            shootingBullet = true;
-            bullet = Instantiate(musicBullet);
+            shootTimer -= Time.deltaTime;
+            if (shootTimer <= 0)
+            {
+                shootingBullet = true;
+                bullet = Instantiate(musicBullet);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            reaction.Play();
         }
 
         if (shootingBullet)
@@ -37,13 +52,18 @@ public class BattleModeEnemy : MonoBehaviour
             //take the length of the line - which varies each frame
             //if we want to travel a set distance, say 0.1, across this line, we need to get 0.1 relative to the length
             //length/100 * 0.1
-            playerPerc += 0.05f;
+            if (!returnBool)
+                playerPerc += 0.1f;
+            else
+                playerPerc -= 0.2f;
+
             sendMusic(enemyLocation, playerLocation, bullet, playerPerc);
 
             if (!shootingBullet)
             {
                 playerPerc = 0;
                 Destroy(bullet);
+                shootTimer = Random.Range(1, 4);
             }
         }
     }
@@ -54,17 +74,31 @@ public class BattleModeEnemy : MonoBehaviour
 
         //send it along the line
         float length = Vector2.Distance(enemyPos, playerPos);
-        if(playerPercentage >= length)
+        if (playerPercentage >= length || (playerPercentage <= 0 && returnBool))
         {
+            if (playerPercentage >= length)
+            {
+                //get hit
+                getHit.Play();
+            }
             shootingBullet = false;
+            returnBool = false;
         }
-        playerPercentage = (1/ length * playerPercentage);
+        playerPercentage = (1 / length * playerPercentage);
         //we start at the enemy coordinates, so we move from enemyPos to playerPos
         Vector2 inbetween = (enemyPos * (1 - playerPercentage) + playerPos * playerPercentage);
         //each half is 50%, so if we take that into account with the percentages, we can modify this to travel the line
         Vector3 musicLoc = new Vector3(inbetween.x, 0, inbetween.y);
         shotBullet.transform.position = musicLoc;
         //when it hits the player, let them react, or let them get hit
+
+
+        if (Vector2.Distance(playerPos, inbetween) < 3 && !returnBool && Input.GetKeyDown(KeyCode.Q))
+        {
+            //initiate the return protocol
+            returnBool = true;
+        }
+
     }
 
     void updateLine(Vector2 enemyPos, Vector2 playerPos)
