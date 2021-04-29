@@ -11,6 +11,8 @@ public class CameraShoulder : CameraState
     public float zoomMouseSensitivity = 100f;
     private float xRotation;
     private float yRotation;
+    private int instrumentMode;
+   // private float bulletSize = 0.1f;
 
     public override void Enter()
     {
@@ -34,8 +36,18 @@ public class CameraShoulder : CameraState
         //xRotation = Mathf.Clamp(xRotation, -45f, 45f);
 
         manager.transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0);
+        Vector3 overShoulder = Vector3.zero;
 
-        Vector3 overShoulder = manager.playerTransform.position + manager.transform.right + Vector3.up - new Vector3(Camera.main.transform.forward.x, 0, Camera.main.transform.forward.z).normalized;
+
+        if (instrumentMode == 0)
+            overShoulder = manager.playerTransform.position + manager.transform.right * 2 + Vector3.up - new Vector3(Camera.main.transform.forward.x, 0, Camera.main.transform.forward.z).normalized;
+
+        if (instrumentMode == 1)
+            overShoulder = manager.playerTransform.position + manager.playerTransform.forward / 3 + Vector3.up / 3;
+
+        if(instrumentMode == 2)
+            overShoulder = manager.playerTransform.position - manager.playerTransform.forward - manager.playerTransform.right + Vector3.up;
+
         if (Vector3.Distance(manager.transform.position, overShoulder) < 0.1f)
         {
             manager.transform.position = overShoulder;
@@ -45,6 +57,10 @@ public class CameraShoulder : CameraState
             manager.transform.position = Vector3.Lerp(manager.transform.position, overShoulder, 0.3f);
         }
 
+/*        if (Input.GetKeyDown(KeyCode.Z))
+            bulletSize = 0.2f;*/
+
+
         if (Input.GetMouseButtonDown(0))
         {
             manager.shootMusic();
@@ -52,7 +68,13 @@ public class CameraShoulder : CameraState
 
         if (Input.GetMouseButtonUp(1))
         {
+            //bulletSize = 0.1f;
             stateMachine.ChangeState(manager.still);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            instrumentMode++;
         }
     }
 

@@ -43,5 +43,6 @@ public class CameraManager : MonoBehaviour
     {
         GameObject temp = Instantiate(musicBulletPrefab, (playerTransform.position + playerTransform.forward), new Quaternion(0, 0, 0, 0));
         temp.GetComponent<Rigidbody>().AddForce((playerTransform.forward + transform.forward).normalized * 1000);
+        //temp.transform.localScale = new Vector3(size, size, size);
     }
 }
