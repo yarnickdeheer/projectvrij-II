@@ -74,7 +74,14 @@ public class CameraShoulder : CameraState
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            instrumentMode++;
+            if(instrumentMode >= 2)
+            {
+                instrumentMode = 0;
+            }
+            else
+            {
+                instrumentMode++;
+            }
         }
     }
 
