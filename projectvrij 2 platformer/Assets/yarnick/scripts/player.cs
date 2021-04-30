@@ -9,12 +9,16 @@ public class player : MonoBehaviour
     private CharacterController controller;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
-    private float playerSpeed = 5;
+    public float playerSpeed = 5;
     private float jumpHeight = 5.0f;
     private float gravityValue = -9.81f;
     public GameObject plane;
     public bool ground;
     public Sprite[] sprites;
+     public GameObject s;
+    public buddymechs buddy;
+
+    public bool dubblejump;
     // public GameObject play;
     private void Start()
     {
@@ -39,9 +43,13 @@ public class player : MonoBehaviour
         //{
         //    Jump();
         //}
-        if (Input.GetButtonDown("Jump") && ground)
+        if (Input.GetButtonDown("Jump") && ground ==true)
         {
             ground = false;
+            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * (gravityValue / 5));
+        }else if (Input.GetButtonDown("Jump") && dubblejump == true)
+        {
+            dubblejump = false;
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * (gravityValue / 5));
         }
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0.1f, Input.GetAxis("Vertical"));
@@ -60,15 +68,22 @@ public class player : MonoBehaviour
 
     void Move()
     {
-        plane.transform.eulerAngles = new Vector3(
-             plane.transform.eulerAngles.x,
-             plane.transform.eulerAngles.y + (Input.GetAxisRaw("Horizontal")/ 100),
-             plane.transform.eulerAngles.z
+        //plane.transform.eulerAngles = new Vector3(
+        //     plane.transform.eulerAngles.x,
+        //     plane.transform.eulerAngles.y + (Input.GetAxisRaw("Horizontal") / 100),
+        //     plane.transform.eulerAngles.z
 
-         );
+        // );
+       // transform.RotateAround(s.transform.position, Vector3.up, (Input.GetAxisRaw("Horizontal")));
+
         if (Input.GetButtonDown("Jump") && ground)
         {
             ground = false;
+            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * (gravityValue / 5));
+        }
+        else if (Input.GetButtonDown("Jump") && dubblejump == true)
+        {
+            dubblejump =false;
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * (gravityValue / 5));
         }
 
@@ -105,14 +120,23 @@ public class player : MonoBehaviour
     {
         if (collision.gameObject.tag == "ground")
         {
-            ground = true;
+            if (buddy.dj == true)
+            {
+                dubblejump = true;
+            }
+               ground = true;
         }
     }
     private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.tag == "ground")
         {
+            if (buddy.dj == true)
+            {
+                dubblejump = true;
+            }
             ground = true;
+            
         }
     }
 
