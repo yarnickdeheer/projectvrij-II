@@ -16,6 +16,8 @@ public class player : MonoBehaviour
     public bool ground;
     public Sprite[] sprites;
      public GameObject s;
+
+    public int orbitspeed;
     public buddymechs buddy;
 
     public bool dubblejump;
@@ -52,7 +54,7 @@ public class player : MonoBehaviour
             dubblejump = false;
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * (gravityValue / 5));
         }
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0.1f, Input.GetAxis("Vertical"));
+        Vector3 move = new Vector3(0f, 0.1f, Input.GetAxis("Vertical"));
    
 
         playerVelocity.y += gravityValue * Time.deltaTime ;
@@ -74,8 +76,8 @@ public class player : MonoBehaviour
         //     plane.transform.eulerAngles.z
 
         // );
-       // transform.RotateAround(s.transform.position, Vector3.up, (Input.GetAxisRaw("Horizontal")));
-
+        // transform.RotateAround(s.transform.position, Vector3.up, (Input.GetAxisRaw("Horizontal")));
+       // transform.RotateAround(s.transform.position, Vector3.up, (-Input.GetAxisRaw("Horizontal") * 2 * Time.deltaTime));
         if (Input.GetButtonDown("Jump") && ground)
         {
             ground = false;
@@ -87,7 +89,7 @@ public class player : MonoBehaviour
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * (gravityValue / 5));
         }
 
-        Vector3 move = new Vector3(0, 0.1f, Input.GetAxis("Vertical"));
+        Vector3 move = new Vector3(0f, 0.1f, Input.GetAxis("Vertical"));
         controller.Move(move * Time.deltaTime * playerSpeed);
 
         if (Input.GetAxisRaw("Horizontal") < 0)
@@ -106,6 +108,15 @@ public class player : MonoBehaviour
         {
             this.GetComponent<SpriteRenderer>().sprite = sprites[1];
         }
+
+        //float Horizontal = Input.GetAxis("Horizontal") * playerSpeed * Time.deltaTime;
+        //float Vertical = Input.GetAxis("Vertical") * playerSpeed * Time.deltaTime;
+
+         
+        //Vector3 Movement =transform.forward * Vertical;
+        //controller.Move(Movement);
+
+
         //float x = Input.GetAxisRaw("Vertical");
         //float moveBy = x * playerSpeed;
         //this.GetComponent<Rigidbody>().velocity = new Vector2(moveBy, this.GetComponent<Rigidbody>().velocity.z);

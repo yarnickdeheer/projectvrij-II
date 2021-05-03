@@ -16,6 +16,8 @@ public class pcontroller : MonoBehaviour
     public bool dubblejump;
 
     public Sprite[] sprites;
+
+    public Transform target;
     // Start is called before the first frame update
     void Start()
     {
@@ -60,7 +62,13 @@ public class pcontroller : MonoBehaviour
         playerVelocity.y += gravityValue * Time.deltaTime;
         Controller.Move(playerVelocity * Time.deltaTime);
 
-        transform.forward = Cam.forward;
+
+
+        Vector3 targetPostition = new Vector3(target.position.x,
+                                     this.transform.position.y,
+                                     target.position.z);
+        this.transform.LookAt(targetPostition);
+        
     }
 
 
