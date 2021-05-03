@@ -55,7 +55,7 @@ public class player : MonoBehaviour
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0.1f, Input.GetAxis("Vertical"));
    
 
-        playerVelocity.y += gravityValue * Time.deltaTime;
+        playerVelocity.y += gravityValue * Time.deltaTime ;
         controller.Move(playerVelocity * Time.deltaTime);
 
 

@@ -12,6 +12,9 @@ public class BuddyMovement : MonoBehaviour
     public bool follow = true;
 
     public bool repos = false;
+    public GameObject cam;
+
+    public float socialdis;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +26,7 @@ public class BuddyMovement : MonoBehaviour
         
         dis = Vector3.Distance(playerobj.transform.position, this.transform.position);
         //Debug.Log(Input.GetAxisRaw("Vertical"));
-        Vector3 np = new Vector3(playerobj.transform.position.x+0.125f, playerobj.transform.position.y, playerobj.transform.position.z + 0.15f);
+        Vector3 np = new Vector3(playerobj.transform.position.x+0.125f, playerobj.transform.position.y, playerobj.transform.position.z + socialdis);
         if (dis >0.5f)
         {
             repos= true;
@@ -47,6 +50,8 @@ public class BuddyMovement : MonoBehaviour
         {
             follow = true;
         }
+
+        transform.forward = cam.transform.forward;
     }
     IEnumerator delay()
     {
