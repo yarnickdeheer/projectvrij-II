@@ -6,6 +6,8 @@ TagManager:
   tags:
   - ground
   - waveable
+  - FxTemporaire
+  - Enemy
   layers:
   - Default
   - TransparentFX
