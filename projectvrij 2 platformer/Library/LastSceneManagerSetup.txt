@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/simon/Scenes/test scene.unity
+- path: Assets/yarnick/scenes/freecam.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
