@@ -16,5 +16,6 @@ public class orbit : MonoBehaviour
     void Update()
     {
         transform.RotateAround(s.transform.position,Vector3.up, (-Input.GetAxisRaw("Horizontal")*2 *Time.deltaTime));
+        
     }
 }
