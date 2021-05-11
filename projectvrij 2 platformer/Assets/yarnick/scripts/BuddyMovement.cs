@@ -71,7 +71,7 @@ public class BuddyMovement : MonoBehaviour
     }
     IEnumerator delay()
     {
-        Debug.Log("reset");
+     //   Debug.Log("reset");
         yield return new WaitForSeconds(0.2f);
         repos = false; 
     }
