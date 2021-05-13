@@ -112,10 +112,17 @@ MonoBehaviour:
     y: 30
     width: 1536
     height: 731
+<<<<<<< Updated upstream
   m_MinSize: {x: 881, y: 492}
   m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
   controlID: 24432
+=======
+  m_MinSize: {x: 880, y: 492}
+  m_MaxSize: {x: 18004, y: 14042}
+  vertical: 0
+  controlID: 400
+>>>>>>> Stashed changes
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -137,10 +144,17 @@ MonoBehaviour:
     y: 0
     width: 1174
     height: 731
+<<<<<<< Updated upstream
   m_MinSize: {x: 605, y: 492}
   m_MaxSize: {x: 14003, y: 14042}
   vertical: 1
   controlID: 24373
+=======
+  m_MinSize: {x: 604, y: 492}
+  m_MaxSize: {x: 14003, y: 14042}
+  vertical: 1
+  controlID: 293
+>>>>>>> Stashed changes
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -163,10 +177,17 @@ MonoBehaviour:
     y: 0
     width: 1174
     height: 433
+<<<<<<< Updated upstream
   m_MinSize: {x: 605, y: 221}
   m_MaxSize: {x: 12005, y: 4021}
   vertical: 0
   controlID: 24374
+=======
+  m_MinSize: {x: 604, y: 221}
+  m_MaxSize: {x: 12004, y: 4021}
+  vertical: 0
+  controlID: 294
+>>>>>>> Stashed changes
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -269,7 +290,11 @@ MonoBehaviour:
   m_MinSize: {x: 333, y: 271}
   m_MaxSize: {x: 14003, y: 10021}
   vertical: 0
+<<<<<<< Updated upstream
   controlID: 24291
+=======
+  controlID: 353
+>>>>>>> Stashed changes
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -471,7 +496,11 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
+<<<<<<< Updated upstream
       m_ExpandedIDs: 2e6effff406efffffe72ffff367affffc288ffff6afbffffd833000020340000663400006a340000
+=======
+      m_ExpandedIDs: 6afbffff
+>>>>>>> Stashed changes
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -581,7 +610,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: -0.013719025, y: 0.107500285, z: 0.0014914698, w: 0.99413186}
     speed: 2
+<<<<<<< Updated upstream
     m_Value: {x: 0.013719025, y: -0.107500285, z: -0.0014914698, w: -0.9941319}
+=======
+    m_Value: {x: -0.25686613, y: 0.10326422, z: -0.027615342, w: -0.9605189}
+>>>>>>> Stashed changes
   m_Size:
     m_Target: 1.5779296
     speed: 2
@@ -675,21 +708,36 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
+<<<<<<< Updated upstream
     - Assets/simon/Scripts/Melody
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
   - Assets/simon/Scripts/Melody
+=======
+    - Assets/simon/Prefabs
+  m_ViewMode: 1
+  m_StartGridSize: 64
+  m_LastFolders:
+  - Assets/simon/Prefabs
+>>>>>>> Stashed changes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\simon\Documents\GitHub\projectvrij-II\projectvrij 2
     platformer
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
+<<<<<<< Updated upstream
     scrollPos: {x: 0, y: 28}
     m_SelectedIDs: b8350000
     m_LastClickedID: 13752
     m_ExpandedIDs: 000000008e35000090350000923500009435000096350000983500009a350000a435000000ca9a3b
+=======
+    scrollPos: {x: 0, y: 53}
+    m_SelectedIDs: 6e350000
+    m_LastClickedID: 13678
+    m_ExpandedIDs: 000000004e35000050350000523500005435000056350000583500005a3500005c35000000ca9a3b
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -717,7 +765,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< Updated upstream
     m_ExpandedIDs: 000000008e35000090350000923500009435000096350000983500009a35000000ca9a3b
+=======
+    m_ExpandedIDs: 000000004e35000050350000523500005435000056350000583500005a3500005c35000000ca9a3b
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -745,7 +797,11 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 0
+<<<<<<< Updated upstream
     m_ExpandedInstanceIDs: c6230000be53000000000000a4340000
+=======
+    m_ExpandedInstanceIDs: c6230000be53000000000000
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

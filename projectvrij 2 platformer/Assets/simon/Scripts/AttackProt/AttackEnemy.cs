@@ -8,6 +8,7 @@ public class AttackEnemy : MonoBehaviour
     public List<int> melody;
     private int currentNote;
     private GameObject noteBeingPlayed;
+    private GameObject player;
 
     public int notesChecked;
     public bool beaten = false;
@@ -16,6 +17,7 @@ public class AttackEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         melody = new List<int>();
         int melodylength = Random.Range(3, 6);
 
@@ -52,5 +54,6 @@ public class AttackEnemy : MonoBehaviour
     {
         Quaternion lookDirection = Quaternion.LookRotation(Camera.main.transform.position);
         noteBeingPlayed = Instantiate(note, new Vector3(transform.position.x, transform.position.y + 2, transform.position.z), lookDirection, this.transform);
+        //noteBeingPlayed.GetComponent<Rigidbody>().AddForce((new Vector3(player.transform.position.x, player.transform.position.y - 2, player.transform.position.z) - transform.position) * 40);
     }
 }
