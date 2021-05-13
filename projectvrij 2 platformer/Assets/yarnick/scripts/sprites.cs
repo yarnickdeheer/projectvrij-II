@@ -32,9 +32,12 @@ public class sprites : MonoBehaviour
 
         Vector3 relative = transform.InverseTransformPoint(cam.transform.position);
         float angle = Mathf.Atan2(relative.x, relative.z) * Mathf.Rad2Deg;
+        //Debug.Log("angle voor rotation" + angle);
+      //  angle = angle + p.transform.eulerAngles.y;
+       // Debug.Log("angle na rotation" + angle);
 
 
-
+      
         if (angle >= 135 &&  angle <= 180 || angle >=-190 && angle <= -135)
         {
             //front
@@ -74,7 +77,7 @@ public class sprites : MonoBehaviour
         }
 
 
-        Debug.Log(angle);
+      //  Debug.Log(angle);
 
 
 

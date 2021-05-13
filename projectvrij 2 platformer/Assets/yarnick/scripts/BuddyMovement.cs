@@ -51,11 +51,27 @@ public class BuddyMovement : MonoBehaviour
             follow = true;
         }
 
-        transform.forward = cam.transform.forward;
+
+        float Horizontal = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+        float Vertical = Input.GetAxis("Vertical") * speed * Time.deltaTime;
+        Vector3 Movement = cam.transform.right * Horizontal + cam.transform.forward * Vertical;
+        //if (Movement.magnitude != 0f)
+        //{
+            transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * cam.GetComponent<CameraMove>().Xsensivity * Time.deltaTime);
+
+
+            Quaternion CamRotation = cam.transform.rotation;
+            CamRotation.x = 0f;
+            CamRotation.z = 0f;
+
+            transform.rotation = Quaternion.Lerp(transform.rotation, CamRotation, 0.1f);
+
+        //}
+        //transform.forward = cam.transform.forward;
     }
     IEnumerator delay()
     {
-        Debug.Log("reset");
+     //   Debug.Log("reset");
         yield return new WaitForSeconds(0.2f);
         repos = false; 
     }
