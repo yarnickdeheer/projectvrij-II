@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/simon/Scenes/AttackPrototype.unity
+- path: Assets/simon/Scenes/Melody.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

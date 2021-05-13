@@ -15,9 +15,9 @@ public class Note : MonoBehaviour
     void Update()
     {
         transform.LookAt(Camera.main.transform);
-        transform.localPosition = new Vector3(0, transform.localPosition.y + 0.01f, 0);
+        transform.localPosition = new Vector3(0, transform.localPosition.y + Time.deltaTime, 0);
         GetComponent<SpriteRenderer>().color = new Color(GetComponent<SpriteRenderer>().color.r, GetComponent<SpriteRenderer>().color.g, GetComponent<SpriteRenderer>().color.b, transparency);
-        transparency -= Time.deltaTime;
+        transparency -= Time.deltaTime / 3;
 
         if(transparency <= 0)
         {
